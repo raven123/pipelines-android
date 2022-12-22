@@ -9,10 +9,15 @@ pool:
 steps:
 - task: Bash@3
   inputs:
+    workingDirectory: ''
+    gradleWrapperFile: 'gradlew'
+    gradleOptions: '-Xmx3072m'
+    publishJUnitResults: false
+    testResultsFiles: '**/TEST-*.xml'
+    tasks: 'assembleDebug'
     targetType: 'inline'
     script: |
-      # Write your commands here
-      
+      # Write your commands here    
       echo 'Hello world'
 - task: Bash@3
   inputs:
